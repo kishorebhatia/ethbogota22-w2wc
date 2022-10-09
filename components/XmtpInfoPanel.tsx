@@ -57,23 +57,9 @@ const XmtpInfoPanel = ({ onConnect }: XmtpInfoPanelProps): JSX.Element => {
     {
       icon: <LinkIcon />,
       headingText: 'Connect your wallet',
-      subHeadingText: 'Verify your wallet to start using the XMTP protocol',
+      subHeadingText: 'Use any wallet to login',
       onClick: onConnect,
       disabled: !!walletAddress,
-    },
-    {
-      icon: <BookOpenIcon />,
-      headingText: 'Read the docs',
-      subHeadingText:
-        'Check out the documentation for our protocol and find out how to get up and running quickly',
-      onClick: () => window.open('https://docs.xmtp.org', '_blank'),
-    },
-    {
-      icon: <UserGroupIcon />,
-      headingText: 'Join our community',
-      subHeadingText:
-        'Talk about what you’re building or find out other projects that are building upon XMTP',
-      onClick: () => window.open('https://community.xmtp.org', '_blank'),
     },
   ]
 
@@ -81,11 +67,11 @@ const XmtpInfoPanel = ({ onConnect }: XmtpInfoPanelProps): JSX.Element => {
     // The info panel is only shown in desktop layouts.
     <div className="hidden md:block m-auto w-[464px]">
       <div className="pb-6">
-        <div className="text-xl text-n-600 font-semibold mb-1">
-          Welcome to the web3 communication protocol
+        <div className="text-l text-n-600 font-semibold mb-1">
+          Welcome to Wallet to Wallet Communication (W2WC)
         </div>
         <div className="text-md text-n-300">
-          Get started by reading the docs or joining the community
+          Start chatting with your FRENS today 
         </div>
       </div>
       <div>
@@ -101,19 +87,6 @@ const XmtpInfoPanel = ({ onConnect }: XmtpInfoPanelProps): JSX.Element => {
             />
           )
         })}
-      </div>
-      <div className="flex justify-between items-center mt-4">
-        <div className="text-n-600 text-sm">
-          xmtp-js v{packageJson.dependencies['@xmtp/xmtp-js'].substring(1)}
-        </div>
-        <a
-          href="https://blog.xmtp.com/contact/"
-          target="_blank"
-          className="text-l-300 font-semibold text-md flex items-center"
-          rel="noreferrer"
-        >
-          I need help <ArrowSmRightIcon className="h-5 fill-l-300" />
-        </a>
       </div>
     </div>
   )
