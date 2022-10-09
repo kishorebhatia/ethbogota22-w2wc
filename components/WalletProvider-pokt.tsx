@@ -20,7 +20,10 @@ type WalletProviderProps = {
 // This variables are not added in state on purpose.
 // It saves few re-renders which then trigger the children to re-render
 // Consider the above while moving it to state variables
-let provider: ethers.providers.Web3Provider
+//let provider: ethers.providers.Web3Provider
+const POCKET_URL = "https://eth-mainnet.gateway.pokt.network/v1/lb/2e462eafe64d4f5a61333caa"
+const provider = new ethers.providers.JsonRpcProvider(POCKET_URL);
+//let provider: ethers.providers
 let chainId: number
 let signer: Signer | undefined
 
@@ -95,7 +98,7 @@ export const WalletProvider = ({
       const instance = await web3Modal.connect()
       if (!instance) return
       instance.on('accountsChanged', handleAccountsChanged)
-      provider = new ethers.providers.Web3Provider(instance, 'any')
+      //provider = new ethers.providers.Web3Provider(instance, 'any')
       provider.on('network', handleChainChanged)
       const newSigner = provider.getSigner()
       const { chainId: newChainId } = await provider.getNetwork()
@@ -163,7 +166,7 @@ export const WalletProvider = ({
       const instance = await web3Modal.connectTo(cachedProviderName)
       if (!instance) return
       instance.on('accountsChanged', handleAccountsChanged)
-      provider = new ethers.providers.Web3Provider(instance, 'any')
+      //provider = new ethers.providers.Web3Provider(instance, 'any')
       provider.on('network', handleChainChanged)
       const newSigner = provider.getSigner()
       const { chainId: newChainId } = await provider.getNetwork()
