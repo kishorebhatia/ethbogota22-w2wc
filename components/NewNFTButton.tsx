@@ -1,5 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment, useState } from "react";
+import NFTModalData from "./NFTModalData"; 
 
 export default function NewNFTButton() {
   let [isOpen, setIsOpen] = useState(false);
@@ -68,7 +69,7 @@ export default function NewNFTButton() {
                     Showcase of NFTs to send via chat 
                   </p>
                 </div>
-
+                <NFTModalData/>
                 <div className="mt-4">
                   <button
                     type="button"
