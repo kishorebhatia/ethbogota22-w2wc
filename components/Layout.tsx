@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { NavigationView, ConversationView } from './Views'
 import { RecipientControl } from './Conversation'
 import NewMessageButton from './NewMessageButton'
+import NewNFTButton from './NewNFTButton'
 import NavigationPanel from './NavigationPanel'
 import XmtpInfoPanel from './XmtpInfoPanel'
 import LandingScreen from './LandingScreen'
@@ -96,7 +97,11 @@ const Layout: React.FC = ({ children }) => {
         <NavigationView>
           <NavigationColumnLayout>
             <NavigationHeaderLayout>
-              {walletAddress && client && <NewMessageButton />}
+              {walletAddress && client && 
+                <div>
+                  <NewMessageButton />
+                  <NewNFTButton/>
+                </div>}
             </NavigationHeaderLayout>
             <NavigationPanel onConnect={handleConnect} />
             <UserMenu
